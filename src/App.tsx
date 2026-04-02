@@ -1,25 +1,45 @@
-import { Routes, Route } from 'react-router-dom';
-import Layout from './components/Layout';
-import ScrollToTop from './components/ScrollToTop';
-import Home from './pages/Home';
-import Services from './pages/Services';
-import About from './pages/About';
-import Capabilities from './pages/Capabilities';
-import Contact from './pages/Contact';
+import { useEffect } from 'react';
+import Header from './components/Header';
+import Footer from './components/Footer';
+import Hero from './sections/Hero';
+import TrustStrip from './sections/TrustStrip';
+import Services from './sections/Services';
+import Approach from './sections/Approach';
+import Work from './sections/Work';
+import About from './sections/About';
+import ContactBanner from './sections/ContactBanner';
 
 export default function App() {
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.08, rootMargin: '0px 0px -30px 0px' },
+    );
+
+    document.querySelectorAll('.fade-in').forEach((el) => observer.observe(el));
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <>
-      <ScrollToTop />
-      <Routes>
-        <Route element={<Layout />}>
-          <Route index element={<Home />} />
-          <Route path="services" element={<Services />} />
-          <Route path="about" element={<About />} />
-          <Route path="capabilities" element={<Capabilities />} />
-          <Route path="contact" element={<Contact />} />
-        </Route>
-      </Routes>
+      <Header />
+      <main>
+        <Hero />
+        <TrustStrip />
+        <Services />
+        <Approach />
+        <Work />
+        <About />
+        <ContactBanner />
+      </main>
+      <Footer />
     </>
   );
 }

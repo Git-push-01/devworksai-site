@@ -1,79 +1,83 @@
 import { useState, useEffect } from 'react';
-import { Link, useLocation } from 'react-router-dom';
 import { SITE } from '../constants';
 
 const navLinks = [
-  { path: '/', label: 'Home' },
-  { path: '/services', label: 'Services' },
-  { path: '/about', label: 'About' },
-  { path: '/capabilities', label: 'Capabilities' },
-  { path: '/contact', label: 'Contact' },
+  { href: '#services', label: 'Services' },
+  { href: '#work', label: 'Work' },
+  { href: '#about', label: 'About' },
 ];
 
 export default function Header() {
-  const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const location = useLocation();
+  const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 20);
+    const onScroll = () => setScrolled(window.scrollY > 10);
     window.addEventListener('scroll', onScroll, { passive: true });
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
-  // Close mobile menu on navigation
-  useEffect(() => {
-    setMenuOpen(false);
-  }, [location.pathname]);
-
-  // Lock body scroll when mobile menu is open
   useEffect(() => {
     document.body.style.overflow = menuOpen ? 'hidden' : '';
-    return () => { document.body.style.overflow = ''; };
+    return () => {
+      document.body.style.overflow = '';
+    };
   }, [menuOpen]);
 
-  return (
-    <header className={`header${scrolled ? ' header--scrolled' : ''}`}>
-      <div className="container header__inner">
-        <Link to="/" className="header__logo">
-          <svg viewBox="0 0 32 32" width="28" height="28" aria-hidden="true">
-            <rect width="32" height="32" rx="7" fill="#6366f1" />
-            <circle cx="10" cy="11" r="2.5" fill="#fff" />
-            <circle cx="22" cy="11" r="2.5" fill="#fff" />
-            <circle cx="16" cy="22" r="2.5" fill="#fff" />
-            <line x1="10" y1="11" x2="22" y2="11" stroke="#fff" strokeWidth="1.5" opacity="0.5" />
-            <line x1="10" y1="11" x2="16" y2="22" stroke="#fff" strokeWidth="1.5" opacity="0.5" />
-            <line x1="22" y1="11" x2="16" y2="22" stroke="#fff" strokeWidth="1.5" opacity="0.5" />
-          </svg>
-          <span>{SITE.name}</span>
-        </Link>
+  const closeMenu = () => setMenuOpen(false);
 
-        <nav className={`header__nav${menuOpen ? ' header__nav--open' : ''}`}>
+  return (
+    <nav className={scrolled ? 'scrolled' : undefined}>
+      <div className="nav-inner">
+        <a href="#" className="logo" onClick={closeMenu}>
+          <div className="logo-icon" />
+          {SITE.name}
+        </a>
+
+        <ul className="nav-links">
           {navLinks.map((link) => (
-            <Link
-              key={link.path}
-              to={link.path}
-              className={`header__link${location.pathname === link.path ? ' header__link--active' : ''}`}
-            >
-              {link.label}
-            </Link>
+            <li key={link.href}>
+              <a href={link.href}>{link.label}</a>
+            </li>
           ))}
-          <Link to="/contact" className="btn btn--primary header__cta">
-            Get in Touch
-          </Link>
-        </nav>
+          <li>
+            <a href="#contact" className="nav-cta-btn">
+              Get in Touch
+            </a>
+          </li>
+        </ul>
 
         <button
-          className={`header__toggle${menuOpen ? ' header__toggle--open' : ''}`}
+          className="mobile-toggle"
           onClick={() => setMenuOpen((prev) => !prev)}
-          aria-label="Toggle menu"
-          aria-expanded={menuOpen}
+          aria-label="Menu"
         >
-          <span />
-          <span />
-          <span />
+          <svg
+            width="22"
+            height="22"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2.5"
+            strokeLinecap="round"
+          >
+            <line x1="3" y1="6" x2="21" y2="6" />
+            <line x1="3" y1="12" x2="21" y2="12" />
+            <line x1="3" y1="18" x2="21" y2="18" />
+          </svg>
         </button>
       </div>
-    </header>
+
+      <div className={`mobile-menu${menuOpen ? ' open' : ''}`}>
+        {navLinks.map((link) => (
+          <a key={link.href} href={link.href} onClick={closeMenu}>
+            {link.label}
+          </a>
+        ))}
+        <a href="#contact" onClick={closeMenu}>
+          Contact
+        </a>
+      </div>
+    </nav>
   );
 }
