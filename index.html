@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- SEO -->
+    <title>DevWorks AI — AI-First Software Engineering &amp; Systems Integration</title>
+    <meta name="description" content="DevWorks AI builds practical AI workflows, automation systems, and integrations that help engineering teams ship faster. Boutique consultancy for AI-first development, systems integration, and engineering enablement." />
+    <link rel="canonical" href="https://devworksai.io/" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://devworksai.io/" />
+    <meta property="og:title" content="DevWorks AI — AI-First Software Engineering & Systems Integration" />
+    <meta property="og:description" content="Practical AI workflows, automation systems, and integrations for engineering teams that ship." />
+    <meta property="og:site_name" content="DevWorks AI" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="DevWorks AI — AI-First Software Engineering & Systems Integration" />
+    <meta name="twitter:description" content="Practical AI workflows, automation systems, and integrations for engineering teams that ship." />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+    <!-- SPA redirect for GitHub Pages (handles deep-link routing) -->
+    <script>
+      (function (l) {
+        if (l.search[1] === '/') {
+          var decoded = l.search
+            .slice(1)
+            .split('&')
+            .map(function (s) { return s.replace(/~and~/g, '&'); })
+            .join('?');
+          window.history.replaceState(null, null,
+            l.pathname.slice(0, -1) + decoded + l.hash
+          );
+        }
+      }(window.location));
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
