@@ -42,7 +42,7 @@ export default function Header() {
           ))}
           <li>
             <a href="#contact" className="nav-cta-btn">
-              Get in Touch
+              👋 Contact
             </a>
           </li>
         </ul>

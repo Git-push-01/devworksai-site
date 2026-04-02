@@ -2,11 +2,12 @@ import { useEffect } from 'react';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import Hero from './sections/Hero';
-import TrustStrip from './sections/TrustStrip';
 import Services from './sections/Services';
-import Approach from './sections/Approach';
+import FocusAreas from './sections/FocusAreas';
+import Capabilities from './sections/Capabilities';
 import Work from './sections/Work';
 import About from './sections/About';
+import Testimonial from './sections/Testimonial';
 import ContactBanner from './sections/ContactBanner';
 
 export default function App() {
@@ -32,11 +33,12 @@ export default function App() {
       <Header />
       <main>
         <Hero />
-        <TrustStrip />
         <Services />
-        <Approach />
+        <FocusAreas />
+        <Capabilities />
         <Work />
         <About />
+        <Testimonial />
         <ContactBanner />
       </main>
       <Footer />

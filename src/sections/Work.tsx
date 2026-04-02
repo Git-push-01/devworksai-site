@@ -42,7 +42,7 @@ export default function Work() {
     <section id="work">
       <div className="container">
         <div className="section-header-centered">
-          <p className="section-eyebrow fade-in">Selected Work</p>
+          <p className="section-eyebrow fade-in">Case Studies</p>
           <h2 className="section-heading fade-in">
             Real capabilities, real outcomes
           </h2>

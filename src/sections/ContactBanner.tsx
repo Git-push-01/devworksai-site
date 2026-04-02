@@ -5,9 +5,9 @@ export default function ContactBanner() {
     <section className="cta-banner" id="contact">
       <div className="container">
         <h2 className="fade-in">
-          Let&rsquo;s talk about what
+          Let&rsquo;s build something
           <br />
-          you&rsquo;re building
+          that actually works
         </h2>
         <p className="fade-in">
           Whether you need a full engagement or just a second opinion on your AI

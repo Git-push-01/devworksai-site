@@ -1,25 +1,23 @@
-import { SITE } from '../constants';
-
 export default function Hero() {
   return (
     <section className="hero">
       <div className="container">
-        <div className="hero-badge">Software Engineering &amp; AI Consulting</div>
+        <div className="hero-badge">AI-First Software Engineering</div>
         <h1>
-          We build the systems that make{' '}
-          <span>AI&nbsp;actually&nbsp;work</span>
+          Your engineering partner for{' '}
+          <span>AI&nbsp;that&nbsp;actually&nbsp;ships</span>
         </h1>
         <p className="hero-sub">
-          {SITE.name} helps engineering teams implement practical AI workflows,
-          automate what should be automated, and ship reliable systems &mdash;
-          without the chaos.
+          DevWorks AI helps teams implement practical AI workflows, automation
+          systems, and engineering infrastructure &mdash; grounded in real
+          implementation, not hype.
         </p>
         <div className="hero-actions">
           <a href="#contact" className="btn btn-primary">
-            Start a Conversation <span className="btn-arrow">&rarr;</span>
+            Let&rsquo;s talk <span className="btn-arrow">&rarr;</span>
           </a>
           <a href="#services" className="btn btn-outline">
-            What We Do <span className="btn-arrow">&rarr;</span>
+            Our services <span className="btn-arrow">&rarr;</span>
           </a>
         </div>
       </div>

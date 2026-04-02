@@ -39,18 +39,27 @@ export default function About() {
             </p>
           </div>
 
-          <div className="about-sidebar fade-in">
-            <h3>Core Expertise</h3>
-            <ul>
-              <li>AI workflow design &amp; implementation</li>
-              <li>Frontend &amp; full-stack development</li>
-              <li>Systems integration &amp; API architecture</li>
-              <li>CMS platform implementations</li>
-              <li>Analytics &amp; event-driven systems</li>
-              <li>Engineering playbooks &amp; standards</li>
-              <li>Legacy modernization</li>
-              <li>Technical team enablement</li>
-            </ul>
+          <div className="about-values-grid fade-in">
+            <div className="av-card">
+              <div className="av-emoji">🎯</div>
+              <h4>Practical over theoretical</h4>
+              <p>We build working systems, not pitch decks about working systems.</p>
+            </div>
+            <div className="av-card">
+              <div className="av-emoji">🔍</div>
+              <h4>Clarity over complexity</h4>
+              <p>Solutions should be understandable by the team that inherits them.</p>
+            </div>
+            <div className="av-card">
+              <div className="av-emoji">📐</div>
+              <h4>Structure that scales</h4>
+              <p>Moving fast matters, but not at the cost of the codebase six months from now.</p>
+            </div>
+            <div className="av-card">
+              <div className="av-emoji">🤝</div>
+              <h4>Delivery over promises</h4>
+              <p>The work speaks. We&rsquo;d rather show results than talk about capabilities.</p>
+            </div>
           </div>
         </div>
       </div>
