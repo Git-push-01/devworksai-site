@@ -1,0 +1,119 @@
+.landing,
+.pharma {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 48px 24px;
+  background: var(--surface-warm, #faf9f7);
+}
+
+.landing-inner,
+.pharma-inner {
+  width: 100%;
+  max-width: 960px;
+  text-align: center;
+}
+
+.landing-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 800;
+  font-size: 18px;
+  margin-bottom: 32px;
+  color: var(--ink);
+}
+
+.landing-title,
+.pharma-title {
+  font-size: clamp(32px, 5vw, 52px);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+  margin-bottom: 16px;
+  color: var(--ink);
+}
+
+.landing-sub,
+.pharma-sub {
+  font-size: 18px;
+  color: var(--ink-muted);
+  margin: 0 auto 48px;
+  max-width: 620px;
+  line-height: 1.6;
+}
+
+.landing-cards {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+}
+
+.landing-card,
+.pharma-card {
+  background: var(--surface, #fff);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 36px 28px;
+  text-align: left;
+  text-decoration: none;
+  color: inherit;
+  transition: border-color 0.25s, box-shadow 0.25s, transform 0.25s;
+}
+
+.landing-card:hover,
+.pharma-card:hover {
+  border-color: var(--border-hover);
+  box-shadow: var(--shadow-md);
+  transform: translateY(-4px);
+}
+
+.landing-emoji {
+  font-size: 40px;
+  display: block;
+  margin-bottom: 16px;
+}
+
+.landing-card h2,
+.pharma-card h3 {
+  font-size: 22px;
+  font-weight: 800;
+  margin-bottom: 10px;
+  color: var(--ink);
+}
+
+.landing-card p,
+.pharma-card p {
+  font-size: 15px;
+  color: var(--ink-muted);
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+.landing-cta {
+  font-weight: 600;
+  color: var(--accent);
+}
+
+.pharma-back {
+  display: inline-block;
+  margin-bottom: 24px;
+  color: var(--ink-muted);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.pharma-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  margin-bottom: 40px;
+}
+
+@media (max-width: 720px) {
+  .landing-cards,
+  .pharma-grid {
+    grid-template-columns: 1fr;
+  }
+}
